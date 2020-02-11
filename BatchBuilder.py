@@ -8,10 +8,11 @@ import sys
 print("Building all CMake projects in directory: " + sys.argv[1])
 
 projects = os.listdir(sys.argv[1])
-print("Building " + len(projects) + " projects.")
+print("Building " + str(len(projects)) + " projects.")
 os.chdir(sys.argv[1])
 for proj in projects:
     os.chdir(proj)
     #print("Current Directory: " + os.getcwd())
-    os.system('cmake CMakeLists.txt & make')
+    os.system('cmake CMakeLists.txt')
+    os.system('make')
     os.chdir(sys.argv[1])
